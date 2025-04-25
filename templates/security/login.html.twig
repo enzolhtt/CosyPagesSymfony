@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Cosy Pages - Connexion{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('/styles/login.css')}}">
+{% endblock %}
 
 {% block body %}
-    <form method="post">
+    {# <form method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -24,18 +29,42 @@
                value="{{ csrf_token('authenticate') }}"
         >
 
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
-
-            <div class="checkbox mb-3">
-                <input type="checkbox" name="_remember_me" id="_remember_me">
-                <label for="_remember_me">Remember me</label>
-            </div>
-        #}
-
         <button class="btn btn-lg btn-primary" type="submit">
             Sign in
         </button>
-    </form>
+    </form> #}
+
+
+    <div class="wrapper" style="background-image: url('https://static.vecteezy.com/ti/photos-gratuite/p2/17281740-un-livre-pose-sur-un-lit-a-cote-d-une-tasse-de-cafe-gratuit-photo.jpg');">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="https://img.freepik.com/vecteurs-libre/pile-design-plat-dessine-main-illustration-livres_23-2149341898.jpg" alt="">
+				</div>
+				<form action="" method="post">
+					<h3>Se connecter</h3>
+					<div class="form-group">
+						<input type="text" name="_username" id="username" placeholder="Nom" class="form-control">
+						<input type="text" placeholder="Prenom" class="form-control">
+					</div>
+					<div class="form-wrapper">
+						<input type="text" placeholder="Adresse mail" class="form-control">
+						<i class="zmdi zmdi-email"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" name="_password" id="password" placeholder="Mot de passe" class="form-control">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Confirmez le mot de passe" class="form-control">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+                    <input type="hidden" name="_csrf_token"
+                        value="{{ csrf_token('authenticate') }}"
+                    >
+					<button type="submit">Connexion
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+				</form>
+			</div>
+		</div>
 {% endblock %}
